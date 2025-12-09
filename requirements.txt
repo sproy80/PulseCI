@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+httpx
+asyncpg
+sqlalchemy[asyncio]
+pandas
+openpyxl
+python-dotenv
+loguru
+aiohttp

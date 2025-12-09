@@ -1,6 +1,6 @@
 # backend/app/routers/news.py
 from fastapi import APIRouter
-from app.database import load_excel_data
+from ..database import load_excel_data
 
 router = APIRouter(prefix="/news", tags=["News"])
 

@@ -1,8 +1,8 @@
 # backend/app/database.py
 import pandas as pd
 from sqlalchemy.ext.asyncio import create_async_engine
-from app.config import settings
-from app.utils.logger import get_logger
+from .utils.config import settings
+from .utils.logger import get_logger
 
 logger = get_logger()
 
