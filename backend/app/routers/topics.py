@@ -30,14 +30,20 @@ async def read_topics_sheet() -> pd.DataFrame:
     return df
 
 async def save_topics_sheet(df: pd.DataFrame):
-    # Use thread to avoid blocking
     def _write():
-        with pd.ExcelWriter(EXCEL_FILE, mode="w", engine="openpyxl") as writer:
+        with pd.ExcelWriter(
+            EXCEL_FILE,
+            mode="a",
+            if_sheet_exists="replace",
+            engine="openpyxl"
+        ) as writer:
             df.to_excel(writer, sheet_name=SHEET_NAME, index=False)
+
     await asyncio.to_thread(_write)
 
-# --- Routes ---
 
+# --- Routes ---
+         
 # GET all topics
 @router.get("/")
 async def get_topics():
